@@ -1,0 +1,27 @@
+{% set name = "TMalign" %}
+{% set version = "2017.07.08" %}
+
+package:
+  name: {{ name | lower }}
+  version: {{ version }}
+
+source:
+  url: https://zhanglab.ccmb.med.umich.edu/TM-align/TMalign.f
+  sha256: 3d0b31cfcf77f56546f32903b843e90e187e2e38539852bdcbc7d7f2ab9b9468
+
+build:
+  script: |
+    ${GFORTRAN} -O3 -ffast-math -lm -o TMalign TMalign.f
+    install -d "$PREFIX/bin"
+    install -m755 TMalign "$PREFIX/bin"
+
+requirements:
+  build:
+  - {{ compiler('fortran') }}
+  - libgcc-ng
+  host:
+  - libgcc-ng
+  - libgfortran-ng
+
+about:
+  home: https://zhanglab.ccmb.med.umich.edu/TM-align/
