@@ -10,7 +10,7 @@ alignment.
 
 ## Building
 
-You should be able to build this package by simply running `conda build`.
+You should be able to build this package by simply running `conda build .`.
 
 [conda]: https://conda.io
 [tmalign]: https://zhanglab.ccmb.med.umich.edu/TM-align/
