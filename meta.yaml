@@ -10,6 +10,7 @@ source:
   sha256: 3d0b31cfcf77f56546f32903b843e90e187e2e38539852bdcbc7d7f2ab9b9468
 
 build:
+  number: {{ environ.get("BUILD_NUMBER", 0) }}
   script: |
     ${GFORTRAN} -O3 -ffast-math -lm -o TMalign TMalign.f
     install -d "$PREFIX/bin"
